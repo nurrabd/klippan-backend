@@ -56,6 +56,9 @@ public class ProductService {
         category.setType(type);
         Item item = new Item();
         item.setCategory(category);
+        item.setCity(city);
+        item.setMunicipality(municipality);
+        item.setType(type);
         item.setTitle(productInfo.getTitle());
         item.setPrice(productInfo.getPrice());
         item.setText(productInfo.getText());

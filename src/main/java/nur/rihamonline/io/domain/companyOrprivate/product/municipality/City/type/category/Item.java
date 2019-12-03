@@ -3,6 +3,10 @@ package nur.rihamonline.io.domain.companyOrprivate.product.municipality.City.typ
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import nur.rihamonline.io.domain.companyOrprivate.product.municipality.City.City;
+import nur.rihamonline.io.domain.companyOrprivate.product.municipality.City.type.Type;
+import nur.rihamonline.io.domain.companyOrprivate.product.municipality.Municipality;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,6 +23,15 @@ public class Item {
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     private Category category;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    private City city;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Type type;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Municipality municipality;
 
 
 }

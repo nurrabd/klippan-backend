@@ -6,6 +6,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import nur.rihamonline.io.domain.companyOrprivate.product.Product;
 import nur.rihamonline.io.domain.companyOrprivate.product.municipality.City.City;
+import nur.rihamonline.io.domain.companyOrprivate.product.municipality.City.type.category.Item;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -24,8 +25,10 @@ public class Municipality {
     private String name;
 
     //OneToMany with cities
-    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "municipality", orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.REFRESH,  mappedBy = "municipality", orphanRemoval = true)
     private List<City> cities = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.REFRESH,  mappedBy = "municipality", orphanRemoval = true)
+    private List<Item> items = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
