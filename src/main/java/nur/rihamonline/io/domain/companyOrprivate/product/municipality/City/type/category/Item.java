@@ -19,6 +19,11 @@ public class Item {
     private String title;
     private String text;
     private String price;
+    private String cat;
+    private String cit;
+    private String mun;
+    private String typ;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
@@ -32,6 +37,29 @@ public class Item {
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     private Municipality municipality;
+
+
+    public String getCat() {
+        return category.getName();
+    }
+
+
+
+    public String getCit() {
+        return city.getName();
+    }
+
+
+
+    public String getMun() {
+        return municipality.getName();
+    }
+
+
+
+    public String getTyp() {
+        return type.getName();
+    }
 
 
 }
