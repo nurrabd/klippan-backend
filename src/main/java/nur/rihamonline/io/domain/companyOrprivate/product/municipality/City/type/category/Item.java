@@ -19,10 +19,7 @@ public class Item {
     private String title;
     private String text;
     private String price;
-    private String cat;
-    private String cit;
-    private String mun;
-    private String typ;
+
 
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -39,25 +36,25 @@ public class Item {
     private Municipality municipality;
 
 
-    public String getCat() {
+    public String getCategory() {
         return category.getName();
     }
 
 
 
-    public String getCit() {
+    public String getCity() {
         return city.getName();
     }
 
 
 
-    public String getMun() {
+    public String getMunicipality() {
         return municipality.getName();
     }
 
 
 
-    public String getTyp() {
+    public String getType() {
         return type.getName();
     }
 

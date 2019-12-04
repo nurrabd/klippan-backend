@@ -40,7 +40,16 @@ public class ProductService {
 
         return productRepository.save(project);
     }
+
+    public Item saveOrUpdateItem(Item item){
+        return itemRepository.save(item);
+    }
+
+
+
+/**
     public Product saveOrUpdateMunicipality(ProductInfo productInfo) {
+
         Product product1 = productRepository.getById((long)1);
         System.out.println(product1.getId());
 
@@ -55,10 +64,10 @@ public class ProductService {
         Category category = categoryRepository.findByName(productInfo.getCategory());
         category.setType(type);
         Item item = new Item();
-        item.setCategory(category);
-        item.setCity(city);
-        item.setMunicipality(municipality);
-        item.setType(type);
+        item.setCategoryy(category);
+        item.setCityy(city);
+        item.setMunicipalityy(municipality);
+        item.setTypee(type);
         item.setTitle(productInfo.getTitle());
         item.setPrice(productInfo.getPrice());
         item.setText(productInfo.getText());
@@ -70,9 +79,13 @@ public class ProductService {
 
 
     }
-
+**/
 
     public Municipality findAllProductsByMunicipality(String s) {
         return municipalityRepository.findByName(s);
+    }
+
+    public Iterable<Item> findAllProductsByItems() {
+        return itemRepository.findAll();
     }
 }

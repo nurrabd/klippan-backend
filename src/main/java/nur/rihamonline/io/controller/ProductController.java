@@ -4,6 +4,7 @@ package nur.rihamonline.io.controller;
 
 import nur.rihamonline.io.domain.ProductInfo;
 import nur.rihamonline.io.domain.companyOrprivate.product.Product;
+import nur.rihamonline.io.domain.companyOrprivate.product.municipality.City.type.category.Item;
 import nur.rihamonline.io.domain.companyOrprivate.product.municipality.Municipality;
 import nur.rihamonline.io.repositories.MunicipalityRepository;
 import nur.rihamonline.io.services.MapValidationErrorService;
@@ -41,6 +42,13 @@ public class ProductController {
         return productService.findAllProductsByMunicipality(s);
     }
 
+//hittta alla genomitems
+    @GetMapping("/allitems")
+    public Iterable<Item> findAllProjectsByItems(){
+
+        return productService.findAllProductsByItems();
+    }
+
     @PostMapping("/createp")
     public ResponseEntity<?> createNewProject(@Valid @RequestBody Product project, BindingResult result, Principal principal){
 
@@ -52,13 +60,13 @@ public class ProductController {
     }
 
     @PostMapping("/createk")
-    public ResponseEntity<?> createNewMunci(@Valid @RequestBody ProductInfo project, BindingResult result, Principal principal){
+    public ResponseEntity<?> createNewMunci(@Valid @RequestBody Item project, BindingResult result, Principal principal){
 
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
         if(errorMap!=null) return errorMap;
 
-        Product project1 = productService.saveOrUpdateMunicipality(project);
-        return new ResponseEntity<Product>(project1, HttpStatus.CREATED);
+        Item project1 = productService.saveOrUpdateItem(project);
+        return new ResponseEntity<Item>(project1, HttpStatus.CREATED);
     }
 
 }
