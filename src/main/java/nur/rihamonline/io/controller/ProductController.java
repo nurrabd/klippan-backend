@@ -43,30 +43,22 @@ public class ProductController {
     }
 
 //hittta alla genomitems
+//hittta alla genomitems
     @GetMapping("/allitems")
     public Iterable<Item> findAllProjectsByItems(){
 
         return productService.findAllProductsByItems();
     }
 
-    @PostMapping("/createp")
-    public ResponseEntity<?> createNewProject(@Valid @RequestBody Product project, BindingResult result, Principal principal){
-
-        ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
-        if(errorMap!=null) return errorMap;
-
-        Product project1 = productService.saveOrUpdateProject(project);
-        return new ResponseEntity<Product>(project1, HttpStatus.CREATED);
-    }
 
     @PostMapping("/createk")
-    public ResponseEntity<?> createNewMunci(@Valid @RequestBody Item project, BindingResult result, Principal principal){
+    public ResponseEntity<?> createNewMunci(@Valid @RequestBody ProductInfo project, BindingResult result, Principal principal){
 
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
         if(errorMap!=null) return errorMap;
 
-        Item project1 = productService.saveOrUpdateItem(project);
-        return new ResponseEntity<Item>(project1, HttpStatus.CREATED);
+        Product project1 = productService.saveOrUpdateProduct(project);
+        return new ResponseEntity<Product>(project1, HttpStatus.CREATED);
     }
 
 }

@@ -15,48 +15,26 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private String title;
     private String text;
     private String price;
 
 
 
+
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore
+
     private Category category;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore
+
     private City city;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore
+
     private Type type;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore
+
     private Municipality municipality;
-
-
-    public String getCategory() {
-        return category.getName();
-    }
-
-
-
-    public String getCity() {
-        return city.getName();
-    }
-
-
-
-    public String getMunicipality() {
-        return municipality.getName();
-    }
-
-
-
-    public String getType() {
-        return type.getName();
-    }
 
 
 }

@@ -47,8 +47,8 @@ public class ProductService {
 
 
 
-/**
-    public Product saveOrUpdateMunicipality(ProductInfo productInfo) {
+
+    public Product saveOrUpdateProduct(ProductInfo productInfo) {
 
         Product product1 = productRepository.getById((long)1);
         System.out.println(product1.getId());
@@ -64,10 +64,10 @@ public class ProductService {
         Category category = categoryRepository.findByName(productInfo.getCategory());
         category.setType(type);
         Item item = new Item();
-        item.setCategoryy(category);
-        item.setCityy(city);
-        item.setMunicipalityy(municipality);
-        item.setTypee(type);
+        item.setCategory(category);
+        item.setCity(city);
+        item.setMunicipality(municipality);
+        item.setType(type);
         item.setTitle(productInfo.getTitle());
         item.setPrice(productInfo.getPrice());
         item.setText(productInfo.getText());
@@ -79,7 +79,7 @@ public class ProductService {
 
 
     }
-**/
+
 
     public Municipality findAllProductsByMunicipality(String s) {
         return municipalityRepository.findByName(s);
